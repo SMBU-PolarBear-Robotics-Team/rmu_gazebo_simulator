@@ -12,9 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from std_msgs.msg import Int32
-
 from rmoss_interfaces.msg import ChassisCmd, GimbalCmd, ShootCmd
+from std_msgs.msg import Int32
 
 
 def publish_chassis_cmd_msg(pub, x, y, w):

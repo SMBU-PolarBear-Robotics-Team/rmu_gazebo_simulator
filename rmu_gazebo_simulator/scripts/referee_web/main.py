@@ -32,7 +32,6 @@ from engineio.payload import Payload
 from flask import Flask, render_template, request
 from flask_cors import CORS
 from flask_socketio import Namespace, SocketIO, emit
-
 from rmoss_interfaces.msg import RefereeCmd, RobotStatus
 
 # ==========================================

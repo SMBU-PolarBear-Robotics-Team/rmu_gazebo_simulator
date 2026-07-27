@@ -18,7 +18,6 @@ import termios
 import tty
 
 import rclpy
-
 from rmoss_interfaces.msg import RefereeCmd
 
 banner = """
