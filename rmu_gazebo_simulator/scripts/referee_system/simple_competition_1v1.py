@@ -18,11 +18,10 @@ import time
 import rclpy
 from geometry_msgs.msg import TransformStamped
 from rclpy.node import Node
-from std_msgs.msg import Bool, String
-from tf2_msgs.msg import TFMessage
-
 from rmoss_interfaces.msg import RefereeCmd, RfidStatusArray, RobotStatus
 from rmoss_interfaces.srv import ExchangeAmmon
+from std_msgs.msg import Bool, String
+from tf2_msgs.msg import TFMessage
 
 
 def parse_attack_info(attack_str):
@@ -117,10 +116,8 @@ class StandardRobot:
 
     def update_hp(self, hp):
         self.remain_hp = self.remain_hp + hp
-        if self.remain_hp < 0:
-            self.remain_hp = 0
-        if self.remain_hp > self.max_hp:
-            self.remain_hp = self.max_hp
+        self.remain_hp = max(self.remain_hp, 0)
+        self.remain_hp = min(self.remain_hp, self.max_hp)
 
     def update_tf(self, tf):
         self.tf = tf

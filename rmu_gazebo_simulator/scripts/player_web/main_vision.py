@@ -36,6 +36,15 @@ from flask import Flask, render_template, request
 from flask_cors import CORS
 from flask_socketio import Namespace, SocketIO, emit
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
+from rmoss_interfaces.msg import (
+    ChassisCmd,
+    GimbalCmd,
+    RfidStatus,
+    RfidStatusArray,
+    RobotStatus,
+    ShootCmd,
+)
+from rmoss_interfaces.srv import ExchangeAmmon
 
 # ==========================================
 #    ros functions
@@ -47,16 +56,6 @@ from ros_handler import (
 )
 from sensor_msgs.msg import Image
 from vision_interfaces.msg import AutoAim
-
-from rmoss_interfaces.msg import (
-    ChassisCmd,
-    GimbalCmd,
-    RfidStatus,
-    RfidStatusArray,
-    RobotStatus,
-    ShootCmd,
-)
-from rmoss_interfaces.srv import ExchangeAmmon
 
 # ==========================================
 #    robot list

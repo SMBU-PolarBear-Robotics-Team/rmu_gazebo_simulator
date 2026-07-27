@@ -35,6 +35,15 @@ from engineio.payload import Payload
 from flask import Flask, render_template, request
 from flask_cors import CORS
 from flask_socketio import Namespace, SocketIO, emit
+from rmoss_interfaces.msg import (
+    ChassisCmd,
+    GimbalCmd,
+    RfidStatus,
+    RfidStatusArray,
+    RobotStatus,
+    ShootCmd,
+)
+from rmoss_interfaces.srv import ExchangeAmmon
 
 # ==========================================
 #    ros functions
@@ -45,16 +54,6 @@ from ros_handler import (
     publish_shoot_cmd_msg,
 )
 from sensor_msgs.msg import Image
-
-from rmoss_interfaces.msg import (
-    ChassisCmd,
-    GimbalCmd,
-    RfidStatus,
-    RfidStatusArray,
-    RobotStatus,
-    ShootCmd,
-)
-from rmoss_interfaces.srv import ExchangeAmmon
 
 # ==========================================
 #    robot list
