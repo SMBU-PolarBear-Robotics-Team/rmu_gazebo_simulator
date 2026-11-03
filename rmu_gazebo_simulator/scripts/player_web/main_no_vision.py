@@ -20,6 +20,8 @@
 # ==========================================
 import base64
 import logging
+import os
+import secrets
 import sys
 import threading
 from threading import Lock
@@ -74,7 +76,7 @@ start_time = 0
 async_mode = "threading"
 Payload.max_decode_packets = 10000
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "secret!"
+app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY", secrets.token_hex(32))
 CORS(app)
 socketio = SocketIO(app, async_mode=async_mode)
 info_thread = None
